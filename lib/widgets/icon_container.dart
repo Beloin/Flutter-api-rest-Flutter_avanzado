@@ -2,28 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class IconContainer extends StatelessWidget {
-  const IconContainer({Key key}) : super(key: key);
+  final double size;
+  const IconContainer({Key key, @required this.size})
+      : assert(size != null && size > 0),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
-      width: 100,
-      height: 100,
+      width: size,
+      height: size,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10,
+            color: Colors.black12,
+            blurRadius: 15,
+            spreadRadius: 1,
+            offset: Offset(0, 10)
           )
         ],
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(this.size * .15),
       ),
       child: Center(
         child: SvgPicture.asset(
           'assets/icon.svg',
-          height: size.height * 0.1,
+          height: this.size * .65,
         ),
       ),
     );

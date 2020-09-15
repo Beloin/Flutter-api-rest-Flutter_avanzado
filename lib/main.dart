@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'pages/home_page.dart';
 
@@ -10,6 +11,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // Força o uso em 'Pé'.
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    StatelessElement(
+        Text('data')); // A real representação de um widget na sua tela
+    Text('data').createElement();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
