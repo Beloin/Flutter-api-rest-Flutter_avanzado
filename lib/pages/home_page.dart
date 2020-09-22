@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_rest/utils/responsive.dart';
 import 'package:flutter_api_rest/widgets/icon_container.dart';
+import 'package:flutter_api_rest/widgets/login_form.dart';
 import '../widgets/circle.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,59 +16,67 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
 
-    final size = MediaQuery.of(context).size;
-    final orangeSize = size.width * 0.65;
-    final pinkSize = size.width * 0.8;
-    final iconSize = size.height * .2;
+    final orangeSize = responsive.wp(65);
+    final pinkSize = responsive.wp(80);
+    final iconSize = responsive.hp(20);
 
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.white,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              right: -(pinkSize) * 0.2,
-              top: -(pinkSize) * 0.30,
-              child: Circle(
-                colors: [
-                  Colors.pinkAccent,
-                  Colors.pink,
-                ],
-                size: pinkSize,
-              ),
-            ),
-            Positioned(
-              left: -(orangeSize) * 0.2,
-              top: -(orangeSize) * 0.30,
-              child: Circle(
-                colors: [
-                  Colors.orange,
-                  Colors.deepOrangeAccent,
-                ],
-                size: orangeSize,
-              ),
-            ),
-            Positioned(
-              top: iconSize,
-              child: Column(
-                children: [
-                  IconContainer(
-                    size: size.width * .27,
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            height: responsive.height,
+            color: Colors.white,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  right: -(pinkSize) * 0.2,
+                  top: -(pinkSize) * 0.30,
+                  child: Circle(
+                    colors: [
+                      Colors.pinkAccent,
+                      Colors.pink,
+                    ],
+                    size: pinkSize,
                   ),
-                  SizedBox(
-                    height: 30,
+                ),
+                Positioned(
+                  left: -(orangeSize) * 0.2,
+                  top: -(orangeSize) * 0.30,
+                  child: Circle(
+                    colors: [
+                      Colors.orange,
+                      Colors.deepOrangeAccent,
+                    ],
+                    size: orangeSize,
                   ),
-                  Text(
-                    'Hello Again\nWelcome Back!',
-                    textAlign: TextAlign.center,
-                  )
-                ],
-              ),
+                ),
+                Positioned(
+                  top: iconSize,
+                  child: Column(
+                    children: [
+                      IconContainer(
+                        size: responsive.wp(27),
+                      ),
+                      SizedBox(
+                        height: responsive.dp(3),
+                      ),
+                      Text(
+                        'Hello Again\nWelcome Back!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: responsive.dp(2),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                LoginForm(),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
