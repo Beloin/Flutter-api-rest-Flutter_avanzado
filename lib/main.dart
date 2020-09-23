@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_api_rest/pages/register_page.dart';
 
 import 'pages/home_page.dart';
 
@@ -25,7 +26,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: LoginPage(),
+      routes: {
+        RegisterPage.routeName: (context) => RegisterPage(),
+        LoginPage.routeName: (context) => LoginPage(),
+      },
     );
   }
 }
