@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_rest/api/my_api.dart';
 import 'package:flutter_api_rest/utils/responsive.dart';
 
 import 'input_text.dart';
@@ -19,6 +20,10 @@ class _LoginFormState extends State<LoginForm> {
     final isOk = _formKey.currentState.validate();
     print('Email: ' + _email);
     print('Password: ' + _password);
+    if (isOk) {
+      final myAPI = new MyAPI();
+      myAPI.login(context, email: _email, password: _password);
+    }
   }
 
   @override

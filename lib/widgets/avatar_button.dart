@@ -25,9 +25,10 @@ class AvatarButton extends StatelessWidget {
           ),
           child: ClipOval(
             child: Image.network(
-              'https://lh3.googleusercontent.com/proxy/cuWoxYcE5zPgDHWp743y5rY6xdemj8iEaJQZ17_3EVzQPz4dQir6AgPo4zsqKici4zA8wq5eN1VtFEW9I6LOMFMEyX_Ntg3Kjp4Ck6txkToQtcwySdWypfap9uNRknbGmQQULw',
+              'https://img2.gratispng.com/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg',
               width: imageSize,
-              height:imageSize,
+              fit: BoxFit.fitHeight,
+              height: imageSize,
             ),
           ),
         ),
