@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_api_rest/pages/home_page.dart';
+import 'package:flutter_api_rest/utils/auth.dart';
 import 'package:flutter_api_rest/utils/dialogs.dart';
 import 'package:meta/meta.dart';
 
@@ -33,6 +34,8 @@ class MyAPI {
           "password": password,
         },
       );
+
+      await Auth.instance.setSession(response.data);
 
       progress.dismiss();
 
@@ -96,6 +99,8 @@ class MyAPI {
           "password": password,
         },
       );
+
+      await Auth.instance.setSession(response.data);
 
       progress.dismiss();
 
