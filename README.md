@@ -17,6 +17,10 @@ A new FLutter project for the Course - [Flutter Avanzado - El siguiente nivel de
 
 <b>Neste repositório só teremos a parte de Design da telas e a Conexão à API.</b>
 
+| Login Page | SignUp Page |
+| ---------  | ----------- |
+| ![Login](flutter_01.png)| ![SignUp](flutter_02.png)| 
+
 Links para os repositórios concorrentes:
 
 -   Socket.io. (WIP)
