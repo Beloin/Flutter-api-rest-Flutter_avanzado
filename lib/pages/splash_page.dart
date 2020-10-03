@@ -19,9 +19,9 @@ class _SplashPageState extends State<SplashPage> with AfterLayoutMixin {
   }
 
   _check() async {
-    final session = await Auth.instance.getSession();
+    final token = await Auth.instance.acessToken;
     String redirection;
-    if (session != null)
+    if (token != null)
       redirection = HomePage.routeName;
     else
       redirection = LoginPage.routeName;
